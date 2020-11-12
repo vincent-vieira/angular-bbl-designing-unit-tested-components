@@ -1,0 +1,6 @@
+<tic-tac-toe-board
+  [size]="size"
+  [squares]="gameService.squares | async"
+></tic-tac-toe-board>
+
+<p *ngIf="gameService.hasGameStarted | async">Game started</p>

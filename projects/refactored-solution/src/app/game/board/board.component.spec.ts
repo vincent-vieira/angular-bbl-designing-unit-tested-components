@@ -31,6 +31,8 @@ describe("Board component", () => {
       }).compileComponents()
   );
 
+  // TODO : test coherence between size and squares
+
   [
     [3, 9],
     [4, 16],
@@ -74,9 +76,8 @@ describe("Board component", () => {
             fixture.detectChanges();
 
             fixture.debugElement
-              .queryAll(By.directive(SquareComponent))
-              [gridIndex].query(By.css("button.square"))
-              .nativeElement.click();
+              .queryAll(By.css("button.square"))
+              [gridIndex].nativeElement.click();
             fixture.detectChanges();
 
             expect(

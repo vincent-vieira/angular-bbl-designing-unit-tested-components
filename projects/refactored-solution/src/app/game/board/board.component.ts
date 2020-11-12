@@ -7,6 +7,7 @@ import { TicTacToeBoard } from "../game.models";
   styleUrls: ["./board.component.sass"],
 })
 export class BoardComponent implements OnInit {
+  
   @Input()
   size: number;
 
@@ -23,6 +24,7 @@ export class BoardComponent implements OnInit {
   }
 
   onSquareClicked(playIndex: number): void {
+    console.log(playIndex);
     this.squareClicked.emit(playIndex);
   }
 }
