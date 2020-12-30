@@ -1,13 +1,17 @@
-import { Component } from "@angular/core";
-import { GameService } from "./game.service";
+import { Component, OnInit } from '@angular/core';
+import { GameService } from './game.service';
 
 @Component({
-  selector: "tic-tac-toe-game",
-  templateUrl: "./game.component.html",
+  selector: 'tic-tac-toe-game',
+  templateUrl: './game.component.html',
+  styleUrls: ['./game.component.sass']
 })
-export class GameComponent {
+export class GameComponent implements OnInit{
   readonly size: number = 3;
-  constructor(readonly gameService: GameService) {
-    gameService.init(this.size);
+
+  constructor(public readonly gameService: GameService) {}
+
+  ngOnInit(): void {
+    this.gameService.init(this.size);
   }
 }
