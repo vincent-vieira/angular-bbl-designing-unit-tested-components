@@ -302,6 +302,10 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "augury": {
+              "tsConfig": "projects/refactored-solution/tsconfig.augury.json",
+              "aot": false
             }
           }
         },
@@ -313,6 +317,9 @@
           "configurations": {
             "production": {
               "browserTarget": "refactored-solution:build:production"
+            },
+            "augury": {
+              "browserTarget": "refactored-solution:build:augury"
             }
           }
         },
