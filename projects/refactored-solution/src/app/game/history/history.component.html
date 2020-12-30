@@ -1,0 +1,5 @@
+<ol>
+  <li *ngFor="let moveNumber of [] | range:size:0">
+    <button (click)="navigateTo.emit(moveNumber)">{{ 'Go to ' + (moveNumber === 0 ? 'game start' : 'move #' + moveNumber)}}</button>
+  </li>
+</ol>
