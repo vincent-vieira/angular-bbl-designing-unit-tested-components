@@ -8,9 +8,11 @@ describe('Game info component', () => {
   const players: TicTacToePlayer[] = ['X', 'O'];
 
   beforeEach(async () => {
-    return TestBed.configureTestingModule({
-      imports: [InfoComponentModule]
-    }).compileComponents();
+    return TestBed
+      .configureTestingModule({
+        imports: [InfoComponentModule]
+      })
+      .compileComponents();
   });
 
   describe('when winner is absent', () => {

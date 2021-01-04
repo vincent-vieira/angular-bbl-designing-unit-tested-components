@@ -11,25 +11,29 @@ function rangeTo(size: number): number[] {
 }
 
 @Component({
-  template: `<tic-tac-toe-board
-    [size]="size"
-    [squares]="[] | range: size * size"
-    (squareClicked)="onSquareClicked($event)"
-  ></tic-tac-toe-board>`,
+  template: `
+    <tic-tac-toe-board
+      [size]="size"
+      [squares]="[] | range: size * size"
+      (squareClicked)="onSquareClicked($event)"
+    ></tic-tac-toe-board>`,
 })
 class TestComponent {
   size: number;
 
-  onSquareClicked(playIndex: number): void {}
+  onSquareClicked(playIndex: number): void {
+  }
 }
 
 describe('Board component', () => {
   beforeEach(
     async () =>
-      await TestBed.configureTestingModule({
-        imports: [BoardComponentModule, SharedModule],
-        declarations: [TestComponent],
-      }).compileComponents()
+      await TestBed
+        .configureTestingModule({
+          imports: [BoardComponentModule, SharedModule],
+          declarations: [TestComponent],
+        })
+        .compileComponents()
   );
 
   [
@@ -65,8 +69,7 @@ describe('Board component', () => {
       });
 
       rangeTo(expectedElementsCount)
-        .map((playIndex) => [playIndex, playIndex + 1])
-        .forEach(([gridIndex, playIndex]) => {
+        .forEach((gridIndex) => {
           it(`should notify parent component when clicking on square number ${gridIndex}`, () => {
             const fixture = TestBed.createComponent(TestComponent);
             fixture.componentInstance.size = size;
@@ -84,7 +87,7 @@ describe('Board component', () => {
             ).toHaveBeenCalledTimes(1);
             expect(
               fixture.componentInstance.onSquareClicked
-            ).toHaveBeenCalledWith(playIndex);
+            ).toHaveBeenCalledWith(gridIndex);
           });
         });
     });

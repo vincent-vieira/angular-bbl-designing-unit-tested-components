@@ -5,9 +5,10 @@ import { By } from '@angular/platform-browser';
 
 describe('History component', () => {
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [HistoryComponentModule]
-    })
+    await TestBed
+      .configureTestingModule({
+        imports: [HistoryComponentModule]
+      })
       .compileComponents();
   });
 
@@ -19,7 +20,7 @@ describe('History component', () => {
   });
 
   [2, 3, 4].forEach(movesNumber => {
-    it(`should render ${movesNumber} moves as listitems, with the first move being with a special label`, () => {
+    it(`should render ${movesNumber} moves as list items, with the first move being with a special label`, () => {
       const fixture = TestBed.createComponent(HistoryComponent);
       fixture.componentInstance.size = movesNumber;
       fixture.detectChanges();
@@ -50,7 +51,7 @@ describe('History component', () => {
       fixture.componentInstance.size = moveNumber + 1;
       fixture.detectChanges();
 
-      fixture.debugElement.query(By.css(`li:nth-child(${moveNumber + 1})`)).nativeElement.click();
+      fixture.debugElement.query(By.css(`li:nth-child(${moveNumber + 1}) > button`)).nativeElement.click();
       fixture.detectChanges();
 
       expect(fixture.componentInstance.navigateTo.emit).toHaveBeenCalledTimes(1);
