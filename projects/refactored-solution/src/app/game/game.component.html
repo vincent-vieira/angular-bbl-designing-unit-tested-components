@@ -1,16 +1,16 @@
 <div class="game">
   <tic-tac-toe-board
     [size]="size"
-    [squares]="gameService.squares | async"
-    (squareClicked)="gameService.play($event)"
-  ></tic-tac-toe-board>
+    [squares]="gameService.squares"
+    (squareClicked)="gameService.play($event)">
+  </tic-tac-toe-board>
 
   <div class="game-info-and-history">
-    <tic-tac-toe-info [winner]="gameService.winner | async"
-                      [nextPlayer]="gameService.nextPlayer | async"></tic-tac-toe-info>
+    <tic-tac-toe-info [winner]="gameService.winner"
+                      [nextPlayer]="gameService.nextPlayer"></tic-tac-toe-info>
     <tic-tac-toe-history
-      *ngIf="gameService.hasGameStarted | async"
+      *ngIf="gameService.hasGameStarted"
       (navigateTo)="gameService.jumpTo($event)"
-      [size]="gameService.historySize | async"></tic-tac-toe-history>
+      [size]="gameService.historySize"></tic-tac-toe-history>
   </div>
 </div>
