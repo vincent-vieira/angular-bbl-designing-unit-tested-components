@@ -15,7 +15,7 @@ Install dependencies:
     - yarn config set cache-folder .yarn
     - yarn install
 
-build:
+Build:
   stage: build
   before_script:
     - yarn config set cache-folder .yarn
@@ -23,7 +23,7 @@ build:
     - ng build --prod --aot initial-project
     - ng build --prod --aot refactored-solution
 
-test:
+Test:
   stage: test
   before_script:
     - yarn config set cache-folder .yarn
