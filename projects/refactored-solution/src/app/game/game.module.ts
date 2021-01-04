@@ -12,4 +12,4 @@ import { InfoComponentModule } from './info/info.module';
   exports: [GameComponent],
   providers: [GameService],
 })
-export class GameModule {}
+export class GameComponentModule {}
