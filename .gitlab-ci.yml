@@ -1,0 +1,32 @@
+image: node:lts-buster-slim
+
+stages:
+  - build
+  - test
+
+cache:
+  paths:
+    - node_modules/
+    - .yarn
+
+Install dependencies:
+  stage: .pre
+  script:
+    - yarn config set cache-folder .yarn
+    - yarn install
+
+build:
+  stage: build
+  before_script:
+    - yarn config set cache-folder .yarn
+  script:
+    - ng build --prod --aot initial-project
+    - ng build --prod --aot refactored-solution
+
+test:
+  stage: test
+  before_script:
+    - yarn config set cache-folder .yarn
+  script:
+    - ng test initial-project
+    - ng test refactored-solution
