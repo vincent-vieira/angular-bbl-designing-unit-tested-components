@@ -20,13 +20,13 @@ Build:
   before_script:
     - yarn config set cache-folder .yarn
   script:
-    - ng build --prod --aot initial-project
-    - ng build --prod --aot refactored-solution
+    - yarn run build --prod --aot initial-project
+    - yarn run build --prod --aot refactored-solution
 
 Test:
   stage: test
   before_script:
     - yarn config set cache-folder .yarn
   script:
-    - ng test initial-project
-    - ng test refactored-solution
+    - yarn run test initial-project
+    - yarn run test refactored-solution
