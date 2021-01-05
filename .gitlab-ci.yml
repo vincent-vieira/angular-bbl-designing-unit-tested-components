@@ -1,4 +1,4 @@
-image: node:lts-buster
+image: zenika/alpine-chrome:with-node
 
 stages:
   - build
