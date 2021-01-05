@@ -28,5 +28,5 @@ Test:
   before_script:
     - yarn config set cache-folder .yarn
   script:
-    - yarn run test initial-project
-    - yarn run test refactored-solution
+    - yarn run test:ci initial-project
+    - yarn run test:ci refactored-solution
