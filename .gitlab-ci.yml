@@ -1,4 +1,4 @@
-image: zenika/alpine-chrome:with-node
+image: node:lts
 
 stages:
   - build
