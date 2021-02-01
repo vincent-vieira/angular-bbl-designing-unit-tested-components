@@ -12,4 +12,5 @@ import { GameInfoComponentModule } from './info/game-info.module';
   exports: [TicTacToeGameComponent],
   providers: [TicTacToeGameService],
 })
-export class TicTacToeGameComponentModule {}
+export class TicTacToeGameModule {
+}

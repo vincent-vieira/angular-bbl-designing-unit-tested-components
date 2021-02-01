@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { TicTacToeGameComponent } from './game.component';
 import { By } from '@angular/platform-browser';
-import { TicTacToeGameComponentModule } from './game.module';
+import { TicTacToeGameModule } from './game.module';
 import { TicTacToeGameService } from './game.service';
 import { GameStateHistoryComponent } from './state/history/state-history.component';
 
@@ -10,7 +10,7 @@ describe('Tic-tac-toe game component', () => {
   beforeEach(async () => {
     await TestBed
       .configureTestingModule({
-        imports: [TicTacToeGameComponentModule]
+        imports: [TicTacToeGameModule]
       })
       .compileComponents();
   });
