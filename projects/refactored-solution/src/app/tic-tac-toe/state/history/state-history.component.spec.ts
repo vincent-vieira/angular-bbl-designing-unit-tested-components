@@ -54,8 +54,7 @@ describe('History component', () => {
       fixture.debugElement.query(By.css(`li:nth-child(${moveNumber + 1}) > button`)).nativeElement.click();
       fixture.detectChanges();
 
-      expect(fixture.componentInstance.navigateTo.emit).toHaveBeenCalledTimes(1);
-      expect(fixture.componentInstance.navigateTo.emit).toHaveBeenCalledWith(moveNumber);
+      expect(fixture.componentInstance.navigateTo.emit).toHaveBeenCalledOnceWith(moveNumber);
     });
   });
 });

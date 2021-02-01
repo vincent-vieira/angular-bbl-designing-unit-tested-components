@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { BoardComponent } from './board.component';
-import { BoardComponentModule } from './board.module';
-import { SquareComponent } from './square/square.component';
+import { TicTacToeBoardComponent } from './board.component';
+import { TicTacToeBoardComponentModule } from './board.module';
 import { SharedModule } from '../../shared/shared.module';
+import { TicTacToeSquareComponent } from '../square/square.component';
 
 function rangeTo(size: number): number[] {
   return [...Array(size).keys()];
@@ -30,7 +30,7 @@ describe('Board component', () => {
     async () =>
       await TestBed
         .configureTestingModule({
-          imports: [BoardComponentModule, SharedModule],
+          imports: [TicTacToeBoardComponentModule, SharedModule],
           declarations: [TestComponent],
         })
         .compileComponents()
@@ -42,7 +42,7 @@ describe('Board component', () => {
   ].forEach(([size, expectedElementsCount]) => {
     describe(`with size ${size} * ${size}`, () => {
       it('should be rendered', () => {
-        const fixture = TestBed.createComponent(BoardComponent);
+        const fixture = TestBed.createComponent(TicTacToeBoardComponent);
 
         expect(fixture).toBeTruthy();
         expect(fixture.componentInstance).toBeTruthy();
@@ -64,7 +64,7 @@ describe('Board component', () => {
         fixture.detectChanges();
 
         expect(
-          fixture.debugElement.queryAll(By.directive(SquareComponent)).length
+          fixture.debugElement.queryAll(By.directive(TicTacToeSquareComponent)).length
         ).toBe(expectedElementsCount);
       });
 
@@ -84,10 +84,7 @@ describe('Board component', () => {
 
             expect(
               fixture.componentInstance.onSquareClicked
-            ).toHaveBeenCalledTimes(1);
-            expect(
-              fixture.componentInstance.onSquareClicked
-            ).toHaveBeenCalledWith(gridIndex);
+            ).toHaveBeenCalledOnceWith(gridIndex);
           });
         });
     });

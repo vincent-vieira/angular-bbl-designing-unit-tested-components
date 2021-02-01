@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { BoardComponent } from './board.component';
-import { SquareComponent } from './square/square.component';
+import { TicTacToeBoardComponent } from './board.component';
 import { SharedModule } from '../../shared/shared.module';
+import { TicTacToeSquareComponentModule } from '../square/square.module';
 
 @NgModule({
-  imports: [CommonModule, SharedModule],
-  declarations: [BoardComponent, SquareComponent],
-  exports: [BoardComponent],
+  imports: [CommonModule, SharedModule, TicTacToeSquareComponentModule],
+  declarations: [TicTacToeBoardComponent],
+  exports: [TicTacToeBoardComponent],
 })
-export class BoardComponentModule {}
+export class TicTacToeBoardComponentModule {
+}

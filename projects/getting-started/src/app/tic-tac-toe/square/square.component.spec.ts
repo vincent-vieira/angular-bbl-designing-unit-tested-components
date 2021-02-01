@@ -2,29 +2,31 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { SquareComponent } from './square.component';
+import { TicTacToeSquareComponent } from './square.component';
 
 @Component({
-  template: `<tic-tac-toe-square
-    [value]="'O'"
-    (clicked)="onSquareClicked()"
-  ></tic-tac-toe-square>`,
+  template: `
+    <tic-tac-toe-square
+      [value]="'O'"
+      (clicked)="onSquareClicked()"
+    ></tic-tac-toe-square>`,
 })
 class TestComponent {
-  onSquareClicked(): void {}
+  onSquareClicked(): void {
+  }
 }
 
-describe('Square component', () => {
+describe('Tic-tac-toe square component', () => {
   beforeEach(
     async () =>
       await TestBed.configureTestingModule({
-        declarations: [SquareComponent, TestComponent],
+        declarations: [TicTacToeSquareComponent, TestComponent],
         imports: [CommonModule],
       }).compileComponents()
   );
 
   it('should be initialized properly', () => {
-    const fixture = TestBed.createComponent(SquareComponent);
+    const fixture = TestBed.createComponent(TicTacToeSquareComponent);
 
     expect(fixture).toBeTruthy();
     expect(fixture.componentInstance).toBeTruthy();
@@ -47,7 +49,6 @@ describe('Square component', () => {
     fixture.debugElement.query(By.css('button.square')).nativeElement.click();
     fixture.detectChanges();
 
-    expect(fixture.componentInstance.onSquareClicked).toHaveBeenCalledTimes(1);
-    expect(fixture.componentInstance.onSquareClicked).toHaveBeenCalledWith();
+    expect(fixture.componentInstance.onSquareClicked).toHaveBeenCalledOnceWith();
   });
 });

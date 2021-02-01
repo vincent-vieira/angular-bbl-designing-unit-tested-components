@@ -6,7 +6,7 @@ import { TicTacToeBoard } from '../state/game.models';
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.sass'],
 })
-export class BoardComponent {
+export class TicTacToeBoardComponent {
 
   @Input()
   size: number;
