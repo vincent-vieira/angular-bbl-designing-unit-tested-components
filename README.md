@@ -6,12 +6,8 @@
 
 Afin d'avoir une expérience optimale avec ce kata, il est nécessaire _a minima_ de :
 
--
-
-Connaître [l'approche composant et ce qu'elle apporte](https://medium.com/the-s-curve/why-component-driven-design-drives-great-software-products-7cace364e815)
-
-- Connaître [les bases des composants Angular (_lien de données_, _lien
-  d'évènements_, _pipe_s...)](https://angular.io/guide/architecture-components)
+- Connaître [l'approche composant et ce qu'elle apporte](https://medium.com/the-s-curve/why-component-driven-design-drives-great-software-products-7cace364e815)
+- Connaître [les bases des composants Angular (_lien de données_, _lien d'évènements_, _pipe_s...)](https://angular.io/guide/architecture-components)
 - Conceptualiser correctement les mots-clé [_async/await_](https://javascript.info/async-await)
 
 ### Le kata "Tic Tac Toe"
@@ -53,10 +49,8 @@ propriétés d'entrée ou l'état de nos composants.
   [C'est un nom qui réfère à un type](https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-aliases) qui
   peut-être :
   - Une ou plusieurs valeurs sous forme de litéral
-  - Une [union de types *
-    discriminée*](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#union-types)
-  -
-  Une [intersection de types](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#intersection-types)
+  - Une [union de types *discriminée*](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#union-types)
+  - Une [intersection de types](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#intersection-types)
 
   **Un alias de type peut être générique.** Cela permet donc une grande flexibilité dans sa déclaration.
 
@@ -116,12 +110,11 @@ l'acronyme _LIFT_ :**
 
 Il n'y a pas de réponse universelle, mais l'approche _core/shared/features_ est un très bon compromis. Le dossier racine
 de vos sources Angular contiendra :
-
-- Un dossier _core_ contenant du code nécessaire à la **"plomberie"** (intercepteurs HTTP, code nécessaire à la gestion
+  - Un dossier _core_ contenant du code nécessaire à la **"plomberie"** (intercepteurs HTTP, code nécessaire à la gestion
   d'erreurs...) qui ne sont qu'à importer **une seule fois au sein du module racine de l'application**.
-- Un dossier _shared_ contenant des services/directives/composants/pipes réutilisables au sein de différents modules,
+  - Un dossier _shared_ contenant des services/directives/composants/pipes réutilisables au sein de différents modules,
   qui ne comportent donc pas de métier spécifique en leur sein.
-- Un dossier par fonctionnalité applicative, exposée à l'extérieur par un _feature module_.
+  - Un dossier par fonctionnalité applicative, exposée à l'extérieur par un _feature module_.
 
 - *Qu'est-ce qu'un **feature module*** ?
 
