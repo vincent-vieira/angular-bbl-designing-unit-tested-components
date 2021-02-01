@@ -45,21 +45,21 @@ de, notamment :
 Lorsque l'on introduit du lien de données entre des composants hiérarchiquement liés, il est nécessaire de typer les
 propriétés d'entrée ou l'état de nos composants.
 
-- *Qu'est-ce qu'un alias de type ?*
-  [C'est un nom qui réfère à un type](https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-aliases) qui
-  peut-être :
-  - Une ou plusieurs valeurs sous forme de litéral
-  - Une [union de types *discriminée*](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#union-types)
-  - Une [intersection de types](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#intersection-types)
+*Qu'est-ce qu'un alias de type ?*
+[C'est un nom qui réfère à un type](https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-aliases) qui
+peut-être :
+- Une ou plusieurs valeurs sous forme de litéral
+- Une [union de types *discriminée*](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#union-types)
+- Une [intersection de types](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#intersection-types)
 
-  **Un alias de type peut être générique.** Cela permet donc une grande flexibilité dans sa déclaration.
+**Un alias de type peut être générique.** Cela permet donc une grande flexibilité dans sa déclaration.
 
-- Quels sont les intérêts des types `TicTacToePlayer` et `TicTacToeBoard` ?
-  https://angular.io/docs
-  En appliquant une restriction sur les valeurs possibles dans l'ensemble des valeurs possibles de type `string`, on
-  donne un sens sémantiquement parlant à notre alias de type. Ainsi à la relecture du code sans aucune connaissance du
-  contexte métier, on identifiera plus facilement ce que représente notre type ainsi que les valeurs utilisées pour
-  représenter notre joueur, et l'ensemble des cellules du plateau.
+*Quels sont les intérêts des types `TicTacToePlayer` et `TicTacToeBoard` ?* 
+
+En appliquant une restriction sur les valeurs possibles dans l'ensemble des valeurs possibles de type `string`, on donne un 
+sens sémantiquement parlant à notre alias de type. Ainsi à la relecture du code sans aucune connaissance du contexte métier, 
+on identifiera plus facilement ce que représente notre type ainsi que les valeurs utilisées pour représenter notre joueur, 
+et l'ensemble des cellules du plateau.
 
 #### Décomposer correctement ses composants
 
@@ -89,7 +89,7 @@ l'historique d'une partie.
 
 Angular possède beaucoup de conventions de nommage et d'organisation, à tel point qu'elles peuvent devenir déroutantes.
 Nous n'évoquerons pas celles concernant le nommage ([**qui sont néanmoins à garder en
-tête !**](https://angular.io/guide/styleguide#naming) qui sont accessibles dans la documentation d'Angular, mais nous
+tête !**](https://angular.io/guide/styleguide#naming)) qui sont accessibles dans la documentation d'Angular, mais nous
 nous concentrerons sur les contraintes d'organisation ; bien plus hardues à assimiler et mettre en place.
 
 **4 principes doivent résonner comme un automatisme lorsque nous organisons du code avec Angular, connus sous
@@ -98,25 +98,26 @@ l'acronyme _LIFT_ :**
 - _[**L**ocaliser](https://angular.io/guide/styleguide#locate)_ facilement du code au sein du projet, sans avoir à
   mémoriser le nom du fichier créé ou son chemin.
 - _[**I**dentifier](https://angular.io/guide/styleguide#identify)_ facilement ce à quoi sert un fichier, et ce qu'il
-  contient (ainsi que ce qu'il ne contient pas)
+  contient (ainsi que ce qu'il ne contient pas).
 - _Aplatir_ au plus la structure ([**F**latten](https://angular.io/guide/styleguide#flat)) pour éviter de créer de la
-  complexité lors de la recherche de fichiers
-- _Essayer de ne pas se répéter_ ([**T**ry to be DRY](https://angular.io/guide/styleguide#t-dry-try-to-be-dry)). Autrement
-  dit, il est nécessaire de suivre le principe DRY (*Don't Repeat Yourself*) sans en abuser et sacrifier la lisibilité
-  du code. Parfois, la duplication de code peut avoir du bon, si cela évite des noeuds au cerveau à la lecture du code :
-  blush:
+  complexité lors de la recherche de fichiers.
+- _Essayer de ne pas se répéter_ ([**T**ry to be DRY](https://angular.io/guide/styleguide#t-dry-try-to-be-dry)).
+  Autrement dit, il est nécessaire de suivre le principe DRY (*Don't Repeat Yourself*) sans en abuser et sacrifier la
+  lisibilité du code. Parfois, la duplication de code peut avoir du bon, si cela évite des noeuds au cerveau à la
+  lecture du code :blush:.
 
-- *Comment organiser ses fichiers au sein d'un projet Angular ?*
+*Comment organiser ses fichiers au sein d'un projet Angular ?*
 
 Il n'y a pas de réponse universelle, mais l'approche _core/shared/features_ est un très bon compromis. Le dossier racine
 de vos sources Angular contiendra :
-  - Un dossier _core_ contenant du code nécessaire à la **"plomberie"** (intercepteurs HTTP, code nécessaire à la gestion
-  d'erreurs...) qui ne sont qu'à importer **une seule fois au sein du module racine de l'application**.
-  - Un dossier _shared_ contenant des services/directives/composants/pipes réutilisables au sein de différents modules,
-  qui ne comportent donc pas de métier spécifique en leur sein.
-  - Un dossier par fonctionnalité applicative, exposée à l'extérieur par un _feature module_.
 
-- *Qu'est-ce qu'un **feature module*** ?
+- Un dossier _core_ contenant du code nécessaire à la **"plomberie"** (intercepteurs HTTP, code nécessaire à la gestion
+  d'erreurs...) qui ne sont qu'à importer **une seule fois au sein du module racine de l'application**.
+- Un dossier _shared_ contenant des services/directives/composants/pipes réutilisables au sein de différents modules,
+  qui ne comportent donc pas de métier spécifique en leur sein.
+- Un dossier par fonctionnalité applicative, exposée à l'extérieur par un _feature module_.
+
+*Qu'est-ce qu'un **feature module*** ?
 
 Un _feature module_ est un `@NgModule` qui permet de regrouper et d'exposer un ensemble de composants, services ou
 directives ayant un sens métier commun et qui sont utilisés les uns avec les autres. C'est une approche inspirée de la
@@ -127,15 +128,15 @@ permet l'utilisation d'un pan entier de l'application sans avoir à connaître l
 nécessaires au fonctionnement de l'ensemble du code (cela peut être également pratique pour réaliser des tests
 d'intégration).
 
-- *Dois-je donc déclarer tous les composants d'une fonctionnalité dans un **feature module** ?*
+*Dois-je donc déclarer tous les composants d'une fonctionnalité dans un **feature module** ?*
 
 Je recommande personnellement une approche où chaque composant possède son propre module. Cela permet la réutilisation
 de ce module dans la configuration des tests, ainsi qu'une isolation claire par rapport au _feature module_.
 
-**Au final, le _feature module_ importera un module par composant exposé, et les services/directives communs à des
-composants.**
+**Au final, le _feature module_ importera un module par composant exposé, et les services/directives communs à ceux-ci.**
 
 #### Tester
+
 ##### Quoi tester ?
 
 ##### Tester la communication entre composants enfant/parent avec `@Output()`

@@ -1,14 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { GameComponentModule } from './game/game.module';
-import { GameComponent } from './game/game.component';
+import { TicTacToeGameComponentModule } from './tic-tac-toe/game.module';
+import { TicTacToeGameComponent } from './tic-tac-toe/game.component';
 
 @NgModule({
   imports: [
     BrowserModule,
-    GameComponentModule
+    TicTacToeGameComponentModule
   ],
-  bootstrap: [GameComponent]
+  bootstrap: [TicTacToeGameComponent]
 })
 export class AppModule { }

@@ -1,9 +1,0 @@
-<div>
-  <div [ngClass]="'board-row'" *ngFor="let rowIndex of [] | range: size: 0">
-    <tic-tac-toe-square
-      *ngFor="let cellIndex of [] | range: size: 0"
-      [value]="squares[cellIndex + rowIndex * size]"
-      (clicked)="onSquareClicked(cellIndex + rowIndex * size)"
-    ></tic-tac-toe-square>
-  </div>
-</div>
