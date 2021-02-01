@@ -48,18 +48,19 @@ propriétés d'entrée ou l'état de nos composants.
 *Qu'est-ce qu'un alias de type ?*
 [C'est un nom qui réfère à un type](https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-aliases) qui
 peut-être :
+
 - Une ou plusieurs valeurs sous forme de litéral
 - Une [union de types *discriminée*](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#union-types)
 - Une [intersection de types](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#intersection-types)
 
 **Un alias de type peut être générique.** Cela permet donc une grande flexibilité dans sa déclaration.
 
-*Quels sont les intérêts des types `TicTacToePlayer` et `TicTacToeBoard` ?* 
+*Quels sont les intérêts des types `TicTacToePlayer` et `TicTacToeBoard` ?*
 
-En appliquant une restriction sur les valeurs possibles dans l'ensemble des valeurs possibles de type `string`, on donne un 
-sens sémantiquement parlant à notre alias de type. Ainsi à la relecture du code sans aucune connaissance du contexte métier, 
-on identifiera plus facilement ce que représente notre type ainsi que les valeurs utilisées pour représenter notre joueur, 
-et l'ensemble des cellules du plateau.
+En appliquant une restriction sur les valeurs possibles dans l'ensemble des valeurs possibles de type `string`, on donne
+un sens sémantiquement parlant à notre alias de type. Ainsi à la relecture du code sans aucune connaissance du contexte
+métier, on identifiera plus facilement ce que représente notre type ainsi que les valeurs utilisées pour représenter
+notre joueur, et l'ensemble des cellules du plateau.
 
 #### Décomposer correctement ses composants
 
@@ -133,15 +134,65 @@ d'intégration).
 Je recommande personnellement une approche où chaque composant possède son propre module. Cela permet la réutilisation
 de ce module dans la configuration des tests, ainsi qu'une isolation claire par rapport au _feature module_.
 
-**Au final, le _feature module_ importera un module par composant exposé, et les services/directives communs à ceux-ci.**
+**Au final, le _feature module_ importera un module par composant exposé, et les services/directives communs à
+ceux-ci.**
 
 #### Tester
 
 ##### Quoi tester ?
 
+Lorsque l'on va rédiger des tests unitaires de composants Angular, les APIs de test fournies avec le framework nous
+offre une kyrielle de possibilités. Accéder à l'élément HTML représentant notre composant pour localiser un élément
+spécifique, accéder à l'injecteur du TestBed ou du composant afin de localiser l'instance d'un service/d'une directive,
+accéder à l'instance de notre composant...
+
+**Cela peut être déroutant, on peut tout faire, et finir par ne rien faire.**
+
+La documentation officielle d'Angular elle-même nous incite à faire deux types de tests :
+
+- [des tests qui vérifient l'état public d'un composant](https://angular.io/guide/testing-components-basics#component-class-testing)
+- [des tests tournés vers l'impact que l'implémentation du composant aura sur l'interface utilisateur](https://angular.io/guide/testing-components-basics#component-dom-testing)
+  ; que ce soit dans l'affichage ou la gestion des interactions avec celui-ci ?
+
+La méthodologie est empruntée de React, où *Kent C. Dodds*, créateur de *testing-library* 
+[qui dit si bien](https://kentcdodds.com/blog/testing-implementation-details) :
+
+> Plus vos tests reflètent la manière dont votre programme est utilisé, plus la confiance que vous leur donnerez sera importante.
+
 ##### Tester la communication entre composants enfant/parent avec `@Output()`
+
+Lorsque l'on écrit des composants faisant appel à un ou
+des [lien(s) d'évènements](https://angular.io/guide/user-input#binding-to-user-input-events), il est intéressant avec
+Angular de créer un composant spécifique au test. Ce composant
+appelé *[test host component](https://angular.io/guide/testing-components-scenarios#component-inside-a-test-host)*,
+permet de lier l'évènement à tester à un composant qui servira d'hôte. Celui-ci possèdera une méthode liée à l'évènement qui
+pourra être espionnée afin d'enregistrer les interactions qu'aura Angular à la suite de l'émission de l'évènement au
+sein du composant enfant testé.
 
 ##### Jasmine ou Jest ?
 
-##### Bonnes pratiques
+Jasmine est *de facto* la bibliothèque utilisée afin d'écrire des tests avec Angular, Karma les exécutant. Ceci étant dit, Jasmine souffre de
+quelques défauts pénibles au quotidien :
+- Absence d'APIs agréables à utiliser pour créer des tests paramétrés 
+- Manque de certains utilitaires d'assertion sur l'invocation de *fonctions espionnes*
 
+[Jest](https://jestjs.io/) pallie à ces problèmes en réunissant librairie d'assertions et exécuteur de tests, mais n'est
+pas disponible *out-of-the-box*, [il est nécessaire de l'installer](https://github.com/briebug/jest-schematic).
+
+Si jamais l'API de testing d'Angular vous paraît trop dantesque, vous pouvez également
+utiliser [Angular Testing Library](https://testing-library.com/docs/angular-testing-library/intro),
+elle est bien plus frugale et permet de se concentrer sur l'essentiel.
+
+##### Bonnes pratiques
+- Nommez et structurez vos tests intelligemment :
+  - Gardez à l'esprit que Jasmine ou Jest concatènent l'ensemble des titres de vos suites de test et de vos tests dans
+    l'ordre dans lequel vous les imbriquez. Cela a pour but de vous inciter à écrire des tests dont les descriptions
+    seront lisibles comme des phrases, intelligibles par un humain. N'hésitez pas à imbriquer vos suites de test avec
+    describe pour décrire une fonctionnalité du composant que vous testez.
+- Prenez avantage des tests paramétrés afin de faire varier l'état initial ainsi que le comportement attendu au sein du
+  composant testé (*même s'ils sont plus douloureux à écrire avec Jasmine*)
+- Essayez autant que faire se peut
+  de [requêter des éléments au sein du DOM par le type de composant/directive cible](https://angular.io/api/platform-browser/By#directive),
+  cela permet d'avoir un code moins sensible au refactoring.
+- N'oubliez pas que la **détection de changement est désactivée par défaut dans des tests Angular**. Il faut
+  appeler `.detectChanges()` sur votre fixture afin de déclencher un cycle de détection et rafraîchir le DOM !

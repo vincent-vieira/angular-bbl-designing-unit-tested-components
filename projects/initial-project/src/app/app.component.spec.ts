@@ -10,10 +10,10 @@ describe('AppComponent', () => {
     }).compileComponents();
   });
 
-  it('should initialize properly', () => {
+  it('should be properly initialized', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
 
     expect(fixture.componentInstance).toBeTruthy();
-  })
+  });
 });
