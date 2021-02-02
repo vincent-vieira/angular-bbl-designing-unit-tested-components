@@ -152,7 +152,7 @@ La documentation officielle d'Angular elle-même nous incite à faire deux types
 
 - [des tests qui vérifient l'état public d'un composant](https://angular.io/guide/testing-components-basics#component-class-testing)
 - [des tests tournés vers l'impact que l'implémentation du composant aura sur l'interface utilisateur](https://angular.io/guide/testing-components-basics#component-dom-testing)
-  ; que ce soit dans l'affichage ou la gestion des interactions avec celui-ci ?
+  ; que ce soit dans l'affichage ou la gestion des interactions avec celui-ci
 
 La méthodologie est empruntée de React, où *Kent C. Dodds*, créateur de *testing-library* 
 [qui dit si bien](https://kentcdodds.com/blog/testing-implementation-details) :
