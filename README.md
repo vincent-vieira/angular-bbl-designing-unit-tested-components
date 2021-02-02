@@ -7,7 +7,7 @@
 Afin d'avoir une expérience optimale avec ce kata, il est nécessaire _a minima_ de :
 
 - Connaître [l'approche composant et ce qu'elle apporte](https://medium.com/the-s-curve/why-component-driven-design-drives-great-software-products-7cace364e815)
-- Connaître [les bases des composants Angular (_lien de données_, _lien d'évènements_, _pipe_s...)](https://angular.io/guide/architecture-components)
+- Connaître [les bases des composants Angular (_lien de données_, _lien d'évènements_, _pipes_...)](https://angular.io/guide/architecture-components)
 - Conceptualiser correctement les mots-clé [_async/await_](https://javascript.info/async-await)
 
 ### Le kata "Tic Tac Toe"

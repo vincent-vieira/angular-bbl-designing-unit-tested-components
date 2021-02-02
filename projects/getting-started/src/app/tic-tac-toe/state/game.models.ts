@@ -1,2 +1,2 @@
-export type TicTacToePlayer = 'X' | 'O';
-export type TicTacToeBoard = Array<TicTacToePlayer | ''>;
+export type TicTacToePlayer = 'X' | 'O' | '';
+export type TicTacToeBoard = Array<TicTacToePlayer>;

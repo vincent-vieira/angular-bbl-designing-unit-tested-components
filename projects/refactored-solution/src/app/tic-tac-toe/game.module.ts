@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 import { TicTacToeBoardComponentModule } from './board/board.module';
 import { TicTacToeGameComponent } from './game.component';
 import { TicTacToeGameService } from './game.service';
-import { GameStateHistoryComponentModule } from './state/history/state-history.module';
-import { GameInfoComponentModule } from './info/game-info.module';
+import { TicTacToeGameStateHistoryComponentModule } from './state/history/state-history.module';
+import { TicTacToeGameInfoComponentModule } from './info/game-info.module';
 
 @NgModule({
-  imports: [TicTacToeBoardComponentModule, CommonModule, GameStateHistoryComponentModule, GameInfoComponentModule],
+  imports: [TicTacToeBoardComponentModule, CommonModule, TicTacToeGameStateHistoryComponentModule, TicTacToeGameInfoComponentModule],
   declarations: [TicTacToeGameComponent],
   exports: [TicTacToeGameComponent],
   providers: [TicTacToeGameService],

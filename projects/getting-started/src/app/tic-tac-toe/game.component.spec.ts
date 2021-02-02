@@ -3,7 +3,7 @@ import { TicTacToeGameComponent } from './game.component';
 import { By } from '@angular/platform-browser';
 import { TicTacToeGameModule } from './game.module';
 import { TicTacToeGameService } from './game.service';
-import { GameStateHistoryComponent } from './state/history/state-history.component';
+import { TicTacToeGameStateHistoryComponent } from './state/history/state-history.component';
 
 describe('Tic-tac-toe game component', () => {
 
@@ -19,7 +19,7 @@ describe('Tic-tac-toe game component', () => {
     const fixture = TestBed.createComponent(TicTacToeGameComponent);
     fixture.detectChanges();
 
-    expect(fixture.debugElement.query(By.directive(GameStateHistoryComponent))).toBeFalsy();
+    expect(fixture.debugElement.query(By.directive(TicTacToeGameStateHistoryComponent))).toBeFalsy();
   });
 
   it('should show moves history if game has started', () => {
@@ -30,6 +30,6 @@ describe('Tic-tac-toe game component', () => {
     fixture.debugElement.injector.get(TicTacToeGameService).play(1);
     fixture.detectChanges();
 
-    expect(fixture.debugElement.query(By.directive(GameStateHistoryComponent))).toBeTruthy();
+    expect(fixture.debugElement.query(By.directive(TicTacToeGameStateHistoryComponent))).toBeTruthy();
   });
 });

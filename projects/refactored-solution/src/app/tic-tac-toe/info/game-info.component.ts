@@ -6,7 +6,7 @@ import { TicTacToePlayer } from '../state/game.models';
   templateUrl: './game-info.component.html',
   styleUrls: ['./game-info.component.sass']
 })
-export class GameInfoComponent {
+export class TicTacToeGameInfoComponent {
 
   @Input()
   winner?: TicTacToePlayer;

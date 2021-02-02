@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-import { GameInfoComponentModule } from './game-info.module';
-import { GameInfoComponent } from './game-info.component';
+import { TicTacToeGameInfoComponentModule } from './game-info.module';
+import { TicTacToeGameInfoComponent } from './game-info.component';
 import { By } from '@angular/platform-browser';
 import { TicTacToePlayer } from '../state/game.models';
 
@@ -10,7 +10,7 @@ describe('Game info component', () => {
   beforeEach(async () => {
     return TestBed
       .configureTestingModule({
-        imports: [GameInfoComponentModule]
+        imports: [TicTacToeGameInfoComponentModule]
       })
       .compileComponents();
   });
@@ -19,7 +19,7 @@ describe('Game info component', () => {
 
     players.forEach(player => {
       it(`should display the next player "${player}" if set`, () => {
-        const fixture = TestBed.createComponent(GameInfoComponent);
+        const fixture = TestBed.createComponent(TicTacToeGameInfoComponent);
         fixture.componentInstance.nextPlayer = player;
         fixture.detectChanges();
 
@@ -28,7 +28,7 @@ describe('Game info component', () => {
       });
 
       it(`should not display the winner "${player}"`, () => {
-        const fixture = TestBed.createComponent(GameInfoComponent);
+        const fixture = TestBed.createComponent(TicTacToeGameInfoComponent);
         fixture.componentInstance.nextPlayer = player;
         fixture.detectChanges();
 
@@ -42,7 +42,7 @@ describe('Game info component', () => {
   players.forEach(player => {
     describe(`when winner is set as player "${player}"`, () => {
       it('should not display the next player', () => {
-        const fixture = TestBed.createComponent(GameInfoComponent);
+        const fixture = TestBed.createComponent(TicTacToeGameInfoComponent);
         fixture.componentInstance.winner = player;
         fixture.detectChanges();
 
@@ -52,7 +52,7 @@ describe('Game info component', () => {
       });
 
       it('should display the winner', () => {
-        const fixture = TestBed.createComponent(GameInfoComponent);
+        const fixture = TestBed.createComponent(TicTacToeGameInfoComponent);
         fixture.componentInstance.winner = player;
         fixture.detectChanges();
 

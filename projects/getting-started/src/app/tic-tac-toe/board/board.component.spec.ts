@@ -19,7 +19,7 @@ class TestComponent {
   }
 }
 
-describe('Board component', () => {
+describe('Tic-tac-toe board component', () => {
   beforeEach(async () => {
     throw new Error('implement');
   });

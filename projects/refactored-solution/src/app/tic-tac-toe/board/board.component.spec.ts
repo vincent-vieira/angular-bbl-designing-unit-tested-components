@@ -25,7 +25,7 @@ class TestComponent {
   }
 }
 
-describe('Board component', () => {
+describe('Tic-tac-toe board component', () => {
   beforeEach(
     async () =>
       await TestBed

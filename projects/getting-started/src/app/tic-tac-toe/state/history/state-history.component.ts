@@ -5,7 +5,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   templateUrl: './state-history.component.html',
   styleUrls: ['./state-history.component.sass']
 })
-export class GameStateHistoryComponent {
+export class TicTacToeGameStateHistoryComponent {
 
   @Input()
   size: number;

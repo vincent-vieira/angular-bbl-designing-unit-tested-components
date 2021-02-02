@@ -1,8 +1,9 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { TicTacToeSquareComponent } from './square.component';
+import { TicTacToePlayer } from '../state/game.models';
+import { TicTacToeSquareComponentModule } from './square.module';
 
 @Component({
   template: `
@@ -20,8 +21,8 @@ describe('Tic-tac-toe square component', () => {
   beforeEach(
     async () =>
       await TestBed.configureTestingModule({
-        declarations: [TicTacToeSquareComponent, TestComponent],
-        imports: [CommonModule],
+        declarations: [TestComponent],
+        imports: [TicTacToeSquareComponentModule],
       }).compileComponents()
   );
 
@@ -32,13 +33,15 @@ describe('Tic-tac-toe square component', () => {
     expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it('should display a button with a value', () => {
-    const fixture = TestBed.createComponent(TestComponent);
+  ['X', 'O', ''].forEach(player => {
+    it(`should display a button with the player's value "${player}"`, () => {
+      const fixture = TestBed.createComponent(TicTacToeSquareComponent);
+      fixture.componentInstance.value = player as TicTacToePlayer;
+      fixture.detectChanges();
 
-    fixture.detectChanges();
-
-    const squareButton = fixture.debugElement.query(By.css('button.square'));
-    expect(squareButton.nativeElement.innerText).toEqual('O');
+      const squareButton = fixture.debugElement.query(By.css('button.square'));
+      expect(squareButton.nativeElement.innerText).toEqual(player);
+    });
   });
 
   it('should notify parent component when clicking on the button', () => {

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { GameStateHistoryComponent } from './state-history.component';
+import { TicTacToeGameStateHistoryComponent } from './state-history.component';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../../../shared/shared.module';
 
 @NgModule({
   imports: [CommonModule, SharedModule],
-  declarations: [GameStateHistoryComponent],
-  exports: [GameStateHistoryComponent]
+  declarations: [TicTacToeGameStateHistoryComponent],
+  exports: [TicTacToeGameStateHistoryComponent]
 })
-export class GameStateHistoryComponentModule {
+export class TicTacToeGameStateHistoryComponentModule {
 }

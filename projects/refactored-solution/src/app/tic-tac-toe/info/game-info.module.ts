@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { GameInfoComponent } from './game-info.component';
+import { TicTacToeGameInfoComponent } from './game-info.component';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [GameInfoComponent],
-  exports: [GameInfoComponent]
+  declarations: [TicTacToeGameInfoComponent],
+  exports: [TicTacToeGameInfoComponent]
 })
-export class GameInfoComponentModule {
+export class TicTacToeGameInfoComponentModule {
 }

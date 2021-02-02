@@ -1,19 +1,19 @@
 import { TestBed } from '@angular/core/testing';
-import { GameStateHistoryComponentModule } from './state-history.module';
-import { GameStateHistoryComponent } from './state-history.component';
+import { TicTacToeGameStateHistoryComponentModule } from './state-history.module';
+import { TicTacToeGameStateHistoryComponent } from './state-history.component';
 import { By } from '@angular/platform-browser';
 
-describe('History component', () => {
+describe('Tic-tac-toe game state history component', () => {
   beforeEach(async () => {
     await TestBed
       .configureTestingModule({
-        imports: [GameStateHistoryComponentModule]
+        imports: [TicTacToeGameStateHistoryComponentModule]
       })
       .compileComponents();
   });
 
   it('should display a list', () => {
-    const fixture = TestBed.createComponent(GameStateHistoryComponent);
+    const fixture = TestBed.createComponent(TicTacToeGameStateHistoryComponent);
     fixture.detectChanges();
 
     expect(fixture.debugElement.query(By.css('ol'))).toBeTruthy();
@@ -21,7 +21,7 @@ describe('History component', () => {
 
   [2, 3, 4].forEach(movesNumber => {
     it(`should render ${movesNumber} moves as list items, with the first move being with a special label`, () => {
-      const fixture = TestBed.createComponent(GameStateHistoryComponent);
+      const fixture = TestBed.createComponent(TicTacToeGameStateHistoryComponent);
       fixture.componentInstance.size = movesNumber;
       fixture.detectChanges();
 
@@ -33,7 +33,7 @@ describe('History component', () => {
   });
 
   it('should render all subsequent moves with their index', () => {
-    const fixture = TestBed.createComponent(GameStateHistoryComponent);
+    const fixture = TestBed.createComponent(TicTacToeGameStateHistoryComponent);
     fixture.componentInstance.size = 3;
     fixture.detectChanges();
 
@@ -46,7 +46,7 @@ describe('History component', () => {
 
   [1, 2].forEach(moveNumber => {
     it(`should notify parent component when jumping to move ${moveNumber}`, () => {
-      const fixture = TestBed.createComponent(GameStateHistoryComponent);
+      const fixture = TestBed.createComponent(TicTacToeGameStateHistoryComponent);
       spyOn(fixture.componentInstance.navigateTo, 'emit');
       fixture.componentInstance.size = moveNumber + 1;
       fixture.detectChanges();
