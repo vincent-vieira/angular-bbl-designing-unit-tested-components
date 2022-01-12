@@ -7,24 +7,24 @@ import { TicTacToePlayer } from '../state/game.models';
 describe('Game info component', () => {
   const players: TicTacToePlayer[] = ['X', 'O'];
 
-  beforeEach(async () => {
-    return TestBed
-      .configureTestingModule({
-        imports: [TicTacToeGameInfoComponentModule]
-      })
-      .compileComponents();
-  });
+  beforeEach(
+    async () =>
+      await TestBed.configureTestingModule({
+        imports: [TicTacToeGameInfoComponentModule],
+      }).compileComponents()
+  );
 
   describe('when winner is absent', () => {
-
-    players.forEach(player => {
+    players.forEach((player) => {
       it(`should display the next player "${player}" if set`, () => {
         const fixture = TestBed.createComponent(TicTacToeGameInfoComponent);
         fixture.componentInstance.nextPlayer = player;
         fixture.detectChanges();
 
-        expect(fixture.debugElement.query(By.css('div.game-info')).nativeElement.textContent)
-          .toEqual(`Next player: ${player}`);
+        expect(
+          fixture.debugElement.query(By.css('div.game-info')).nativeElement
+            .textContent
+        ).toEqual(`Next player: ${player}`);
       });
 
       it(`should not display the winner "${player}"`, () => {
@@ -32,32 +32,38 @@ describe('Game info component', () => {
         fixture.componentInstance.nextPlayer = player;
         fixture.detectChanges();
 
-        expect(fixture.debugElement.query(By.css('div.game-info')).nativeElement.textContent)
-          .not
-          .toEqual(`Winner: ${player}`);
+        expect(
+          fixture.debugElement.query(By.css('div.game-info')).nativeElement
+            .textContent
+        ).not.toEqual(`Winner: ${player}`);
       });
     });
   });
 
-  players.forEach(player => {
+  players.forEach((player) => {
     describe(`when winner is set as player "${player}"`, () => {
-      it('should not display the next player', () => {
+      it('should not display the next player even if it is set', () => {
         const fixture = TestBed.createComponent(TicTacToeGameInfoComponent);
         fixture.componentInstance.winner = player;
+        fixture.componentInstance.nextPlayer = player;
         fixture.detectChanges();
 
-        expect(fixture.debugElement.query(By.css('div.game-info')).nativeElement.textContent)
-          .not
-          .toEqual(`Next player: ${player}`);
+        expect(
+          fixture.debugElement.query(By.css('div.game-info')).nativeElement
+            .textContent
+        ).not.toEqual(`Next player: ${player}`);
       });
 
       it('should display the winner', () => {
         const fixture = TestBed.createComponent(TicTacToeGameInfoComponent);
         fixture.componentInstance.winner = player;
+        fixture.componentInstance.nextPlayer = player;
         fixture.detectChanges();
 
-        expect(fixture.debugElement.query(By.css('div.game-info')).nativeElement.textContent)
-          .toEqual(`Winner: ${player}`);
+        expect(
+          fixture.debugElement.query(By.css('div.game-info')).nativeElement
+            .textContent
+        ).toEqual(`Winner: ${player}`);
       });
     });
   });

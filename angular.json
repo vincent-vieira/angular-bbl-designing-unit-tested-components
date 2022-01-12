@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "initial-project": {
@@ -27,9 +27,7 @@
               "projects/initial-project/src/favicon.ico",
               "projects/initial-project/src/assets"
             ],
-            "styles": [
-              "projects/initial-project/src/styles.sass"
-            ],
+            "styles": ["projects/initial-project/src/styles.sass"],
             "scripts": []
           },
           "configurations": {
@@ -90,9 +88,7 @@
               "projects/initial-project/src/favicon.ico",
               "projects/initial-project/src/assets"
             ],
-            "styles": [
-              "projects/initial-project/src/styles.sass"
-            ],
+            "styles": ["projects/initial-project/src/styles.sass"],
             "scripts": []
           }
         },
@@ -134,9 +130,7 @@
               "projects/getting-started/src/favicon.ico",
               "projects/getting-started/src/assets"
             ],
-            "styles": [
-              "projects/getting-started/src/styles.sass"
-            ],
+            "styles": ["projects/getting-started/src/styles.sass"],
             "scripts": []
           },
           "configurations": {
@@ -197,9 +191,7 @@
               "projects/getting-started/src/favicon.ico",
               "projects/getting-started/src/assets"
             ],
-            "styles": [
-              "projects/getting-started/src/styles.sass"
-            ],
+            "styles": ["projects/getting-started/src/styles.sass"],
             "scripts": []
           }
         },
@@ -241,9 +233,7 @@
               "projects/refactored-solution/src/favicon.ico",
               "projects/refactored-solution/src/assets"
             ],
-            "styles": [
-              "projects/refactored-solution/src/styles.sass"
-            ],
+            "styles": ["projects/refactored-solution/src/styles.sass"],
             "scripts": []
           },
           "configurations": {
@@ -273,10 +263,6 @@
                   "maximumError": "10kb"
                 }
               ]
-            },
-            "augury": {
-              "tsConfig": "projects/refactored-solution/tsconfig.augury.json",
-              "aot": false
             }
           }
         },
@@ -311,9 +297,7 @@
               "projects/refactored-solution/src/favicon.ico",
               "projects/refactored-solution/src/assets"
             ],
-            "styles": [
-              "projects/refactored-solution/src/styles.sass"
-            ],
+            "styles": ["projects/refactored-solution/src/styles.sass"],
             "scripts": []
           }
         },
@@ -330,6 +314,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "refactored-solution"
 }
