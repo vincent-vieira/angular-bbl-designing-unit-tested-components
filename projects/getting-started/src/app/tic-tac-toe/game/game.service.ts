@@ -21,11 +21,7 @@ const calculateWinner = (squares: TicTacToeBoard): TicTacToePlayer | null => {
   for (const line of lines) {
     const [a, b, c] = line;
 
-    if (
-      squares[a] &&
-      squares[a] === squares[b] &&
-      squares[a] === squares[c]
-    ) {
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
       return squares[a] as TicTacToePlayer;
     }
   }
@@ -38,7 +34,6 @@ const switchPlayer = (currentPlayer: TicTacToePlayer): TicTacToePlayer => {
 
 @Injectable()
 export class TicTacToeGameService {
-
   private history: TicTacToeGameStateHistory = [];
   private currentPlayer: TicTacToePlayer;
   private currentStepNumber: number;
@@ -69,11 +64,11 @@ export class TicTacToeGameService {
     this.history = [
       {
         squares: Array.from(
-          {length: size * size},
+          { length: size * size },
           () => '' as TicTacToePlayer
         ),
-        currentPlayer: this.currentPlayer
-      }
+        currentPlayer: this.currentPlayer,
+      },
     ];
   }
 
@@ -91,7 +86,7 @@ export class TicTacToeGameService {
 
     this.history = [
       ...this.history.slice(0, this.currentStepNumber + 1),
-      {squares: newSquares, currentPlayer: this.currentPlayer}
+      { squares: newSquares, currentPlayer: this.currentPlayer },
     ];
     this.currentPlayer = switchPlayer(this.currentPlayer);
     this.currentStepNumber += 1;

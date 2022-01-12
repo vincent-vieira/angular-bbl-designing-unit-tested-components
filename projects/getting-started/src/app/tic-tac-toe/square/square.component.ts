@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { TicTacToePlayer } from '../state/game.models';
+import { TicTacToePlayer } from '../game/state/game.models';
 
 @Component({
   selector: 'tic-tac-toe-square',
@@ -7,7 +7,6 @@ import { TicTacToePlayer } from '../state/game.models';
   templateUrl: './square.component.html',
 })
 export class TicTacToeSquareComponent {
-
   @Input()
   value: TicTacToePlayer;
 

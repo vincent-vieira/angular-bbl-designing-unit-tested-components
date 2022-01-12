@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { TicTacToeBoard } from '../state/game.models';
+import { TicTacToeBoard } from '../game/state/game.models';
 
 @Component({
   selector: 'tic-tac-toe-board',
@@ -7,7 +7,6 @@ import { TicTacToeBoard } from '../state/game.models';
   styleUrls: ['./board.component.sass'],
 })
 export class TicTacToeBoardComponent {
-
   @Input()
   size: number;
 
